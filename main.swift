@@ -121,7 +121,7 @@ ab.people().forEach {
 
     if let lastName = people.value(forProperty: kABLastNameProperty) as? String {
         _ = try? people.setValue(
-            lastName.phoneticLast().phonetic(),
+            lastName.phoneticLast().phonetic(), // 不填为 nil，否则为 lastName.phoneticLast().phonetic()
             forProperty: kABLastNamePhoneticProperty,
             error: ()
         )
@@ -130,7 +130,7 @@ ab.people().forEach {
 
     if let firstName = people.value(forProperty: kABFirstNameProperty) as? String {
         _ = try? people.setValue(
-            firstName.phonetic(),
+            nil,    // 不填为 nil，否则为 firstName.phonetic()
             forProperty: kABFirstNamePhoneticProperty,
             error: ()
         )
